@@ -29,6 +29,7 @@ namespace Archiver.Dialogs
         public string archieveName = "compressed_file.zip";
         public SpeechSynthesizer debugger;
         public List<string> data;
+        public Archiver.Dialogs.ProgressDialog progressDialog;
 
         public AddArchieveDialog(List<string> data)
         {
@@ -71,10 +72,29 @@ namespace Archiver.Dialogs
                     {
                         FileStream source1 = File.Open(dataItem, FileMode.Open, FileAccess.Read);
                         string sourceFileName = System.IO.Path.GetFileName(dataItem);
-                        archive.CreateEntry(sourceFileName, source1);
+                        ArchiveEntry entry = archive.CreateEntry(sourceFileName, source1);
+                        entry.CompressionProgressed += CompressionProgressHandler;
                     }
+                    
+                    progressDialog = new Archiver.Dialogs.ProgressDialog(generalArchieveName);
+                    progressDialog.Show();
+                    
                     archive.Save(zipFile);
                 }
+            }
+        }
+
+        private void CompressionProgressHandler(object sender, ProgressEventArgs e)
+        {
+            ArchiveEntry entry = ((ArchiveEntry)(sender));
+            ulong size = entry.CompressedSize;
+            ulong progress = e.ProceededBytes;
+            ulong sizePercent = size / 100;
+            ulong percents = (size - progress) / sizePercent;
+            generalArchieveName.DataContext = percents;
+            if (progressDialog != null)
+            {
+                progressDialog.Close();
             }
         }
 

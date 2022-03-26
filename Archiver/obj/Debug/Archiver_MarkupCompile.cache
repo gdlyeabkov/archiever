@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\wpf_projects\Archiver\Archiver\App.xaml
-8529823054
+91466104292
 
-12-1385890376
+13-1949785478
 1261773135527
-Dialogs\AddArchieveDialog.xaml;Dialogs\ExtractArchieveDialog.xaml;Dialogs\FixArchieveDialog.xaml;Dialogs\InfoSourceFileDialog.xaml;Dialogs\MasterArchieveDialog.xaml;Dialogs\SearchSourceFilesDialog.xaml;Dialogs\SearchSourceFilesResultsDialog.xaml;MainWindow.xaml;
+Dialogs\AddArchieveDialog.xaml;Dialogs\ExtractArchieveDialog.xaml;Dialogs\FixArchieveDialog.xaml;Dialogs\InfoSourceFileDialog.xaml;Dialogs\MasterArchieveDialog.xaml;Dialogs\ProgressDialog.xaml;Dialogs\SearchSourceFilesDialog.xaml;Dialogs\SearchSourceFilesResultsDialog.xaml;MainWindow.xaml;
 
 False
 

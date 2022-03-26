@@ -22,28 +22,291 @@
                 Height="128"
                 VerticalAlignment="Center"
             />
-            <StackPanel
-                Margin="15"    
+            <TabControl
+                x:Name="masterActionTabControl"
             >
-                <TextBlock>
-                    Выберите нужное вам действие и нажмите кнопку "Далее".
-                </TextBlock>
-                <TextBlock>
-                    Выберите нужное вам действие и нажмите кнопку "Далее".
-                </TextBlock>
-                <RadioButton
-                    x:Name="isExtractArchieveRadioButton"
-                    Content="Распаковать архив"
-                />
-                <RadioButton
-                    x:Name="isCreateNewArchieveRadioButton"
-                    Content="Создать новый архив"
-                />
-                <RadioButton
-                    x:Name="isAddFilesToExistedArchieveRadioButton"
-                    Content="Добавить файлы в уже существующий архив"    
-                />
-            </StackPanel>
+                <TabItem
+                    Visibility="Collapsed"    
+                >
+                    <StackPanel
+                        Margin="15"    
+                    >
+                        <TextBlock>
+                            Выберите нужное вам действие и нажмите кнопку "Далее".
+                        </TextBlock>
+                        <TextBlock>
+                            Например чтобы извлечь файлы из архива (RAR, ZIP или другого формата), выберите "Распаковать архив".
+                        </TextBlock>
+                        <RadioButton
+                            x:Name="isExtractArchieveRadioButton"
+                            IsChecked="True"
+                            Content="Распаковать архив"
+                        />
+                        <RadioButton
+                            x:Name="isCreateNewArchieveRadioButton"
+                            Content="Создать новый архив"
+                        />
+                        <RadioButton
+                            x:Name="isAddFilesToExistedArchieveRadioButton"
+                            Content="Добавить файлы в уже существующий архив"    
+                        />
+                    </StackPanel>
+                </TabItem>
+                <TabItem
+                    Visibility="Collapsed"    
+                >
+                    <StackPanel
+                        Margin="15"    
+                    >
+                        <TextBlock>
+                            Введите имя создаваемого архива и нажмите кнопку "Далее".
+                        </TextBlock>
+                        <TextBlock>
+                            Можно ввести имя вручную или нажать "Обзор..." и выбрать папку и имя.
+                        </TextBlock>
+                        <StackPanel
+                            Margin="0, 10, 0, 10"
+                            Orientation="Horizontal"    
+                        >
+                            <TextBlock
+                                Text="Имя архива"    
+                            />
+                            <Button
+                                Width="75"
+                                Margin="250, 0, 0, 0"
+                                Content="Обзор..."    
+                                Click="OpenArchieveNameHandler"
+                            />
+                        </StackPanel>
+                        <ComboBox
+                            x:Name="createArchieveNameBox"
+                            IsEditable="True"    
+                        />
+                    </StackPanel>
+                </TabItem>
+                <TabItem
+                    Visibility="Collapsed"    
+                >
+                    <StackPanel
+                        Margin="15"    
+                    >
+                        <TextBlock>
+                            Здесь можно указать дополнительные параметры архивации.
+                        </TextBlock>
+                        <TextBlock>
+                            По окончании нажмите кнопку "Готово".
+                        </TextBlock>
+                        <CheckBox
+                            Content="Сжимать быстрее, но менее сильно"
+                        />
+                        <CheckBox
+                            Content="Удалить файлы после архивации"
+                        />
+                        <CheckBox
+                            Content="Создать самораспаковывающийся (.exe) архив"
+                        />
+                        <Button
+                            Margin="0, 15, 0, 15"
+                            HorizontalAlignment="Left"
+                            Width="175"
+                            Height="25"
+                            Content="Установить пароль"
+                        />
+                        <TextBlock>
+                            Если вы хотите создать архив состоящий из нескольких частей (томов)
+                        </TextBlock>
+                        <StackPanel
+                            Orientation="Horizontal"    
+                        >
+                            <ComboBox
+                                Width="125"
+                                IsEditable="True"    
+                            />
+                            <ComboBox
+                                SelectedIndex="2"
+                                Width="75"
+                            >
+                                <ComboBoxItem
+                                    Content="Байт"    
+                                />
+                                <ComboBoxItem
+                                    Content="КБ"    
+                                />
+                                <ComboBoxItem
+                                    Content="МБ"    
+                                />
+                                <ComboBoxItem
+                                    Content="ГБ"    
+                                />
+                            </ComboBox>
+                        </StackPanel>
+                    </StackPanel>
+                </TabItem>
+                <TabItem
+                    Visibility="Collapsed"    
+                >
+                    <StackPanel
+                        Margin="15"    
+                    >
+                        <TextBlock>
+                            Выберите архив для распаковки и нажмите кнопку "Далее".
+                        </TextBlock>
+                        <TextBlock>
+                            Можно просто перетащить мышью значок файла-архива в это
+                        </TextBlock>
+                        <TextBlock>
+                            окно или нажать "Обзор..." и выбрать нужный архив.
+                        </TextBlock>
+                        <StackPanel
+                            Margin="0, 10, 0, 10"
+                            Orientation="Horizontal"    
+                        >
+                            <TextBlock
+                                Text="Имя архива"    
+                            />
+                            <Button
+                                Width="75"
+                                Margin="250, 0, 0, 0"
+                                Content="Обзор..."    
+                                Click="OpenExtractArchieveNameHandler"
+                            />
+                        </StackPanel>
+                        <ComboBox
+                            x:Name="extractedArchieveNameBox"
+                            IsEditable="True"
+                        />
+                    </StackPanel>
+                </TabItem>
+                <TabItem
+                    Visibility="Collapsed"    
+                >
+                    <StackPanel
+                        Margin="15"    
+                    >
+                        <TextBlock>
+                            Укажите папку, в которую необходимо поместить извлеченные из архива файлы и нажмите кнопку "Готово".
+                        </TextBlock>
+                        <TextBlock>
+                            Можно использовать либо предложенную папку, либо нажать кнопку "Обзор" и выбрать другую.
+                        </TextBlock>
+                        <StackPanel
+                            Margin="0, 10, 0, 10"
+                            Orientation="Horizontal"    
+                        >
+                            <TextBlock
+                                Text="Папка для извлекаемых файлов:"    
+                            />
+                            <Button
+                                Width="75"
+                                Margin="250, 0, 0, 0"
+                                Content="Обзор..."    
+                                Click="OpenExtractFolderNameHandler"
+                            />
+                        </StackPanel>
+                        <ComboBox
+                            x:Name="extractedFolderNameBox"
+                            IsEditable="True"
+                        />
+                    </StackPanel>
+                </TabItem>
+                <TabItem
+                    Visibility="Collapsed"    
+                >
+                    <StackPanel
+                        Margin="15"    
+                    >
+                        <TextBlock>
+                            Выберите архив для обновления и нажмите кнопку "Далее".
+                        </TextBlock>
+                        <TextBlock>
+                            Можно просто перетащить мышью значок файла-архива в это
+                        </TextBlock>
+                        <TextBlock>
+                            окно или нажать "Обзор..." и выбрать нужный архив.
+                        </TextBlock>
+                        <StackPanel
+                            Margin="0, 10, 0, 10"
+                            Orientation="Horizontal"    
+                        >
+                            <TextBlock
+                                Text="Имя архива"    
+                            />
+                            <Button
+                                Width="75"
+                                Margin="250, 0, 0, 0"
+                                Content="Обзор..."    
+                                Click="OpenAddedArchieveNameHandler"
+                            />
+                        </StackPanel>
+                        <ComboBox
+                            x:Name="addedArchieveNameBox"
+                            IsEditable="True"
+                        />
+                    </StackPanel>
+                </TabItem>
+                <TabItem
+                    Visibility="Collapsed"    
+                >
+                    <StackPanel
+                        Margin="15"    
+                    >
+                        <TextBlock>
+                            Здесь можно указать дополнительные параметры архивации.
+                        </TextBlock>
+                        <TextBlock>
+                            По окончании нажмите кнопку "Готово".
+                        </TextBlock>
+                        <CheckBox
+                            Content="Сжимать быстрее, но менее сильно"
+                        />
+                        <CheckBox
+                            Content="Удалить файлы после архивации"
+                        />
+                        <CheckBox
+                            Content="Создать самораспаковывающийся (.exe) архив"
+                        />
+                        <Button
+                            Margin="0, 15, 0, 15"
+                            HorizontalAlignment="Left"
+                            Width="175"
+                            Height="25"
+                            Content="Установить пароль"
+                        />
+                        <TextBlock
+                            IsEnabled="False"    
+                        >
+                            Если вы хотите создать архив состоящий из нескольких частей (томов)
+                        </TextBlock>
+                        <StackPanel
+                            Orientation="Horizontal"    
+                        >
+                            <ComboBox
+                                Width="125"
+                                IsEditable="True"
+                                IsEnabled="False"
+                            />
+                            <ComboBox
+                                SelectedIndex="2"
+                                Width="75"
+                                IsEnabled="False"
+                            >
+                                <ComboBoxItem
+                                    Content="Байт"    
+                                />
+                                <ComboBoxItem
+                                    Content="КБ"    
+                                />
+                                <ComboBoxItem
+                                    Content="МБ"    
+                                />
+                                <ComboBoxItem
+                                    Content="ГБ"    
+                                />
+                            </ComboBox>
+                        </StackPanel>
+                    </StackPanel>
+                </TabItem>
+            </TabControl>
         </StackPanel>
         <Separator
             DockPanel.Dock="Top"
@@ -54,10 +317,12 @@
             HorizontalAlignment="Right"
         >
             <Button
+                x:Name="backBtn"
                 Height="24"
                 Width="100"
                 Margin="10, 0, 10, 10"
                 IsEnabled="False"
+                Click="BackHandler"
             >
                 <Button.Content>
                     <StackPanel
@@ -78,6 +343,7 @@
                 </Button.Content>
             </Button>
             <Button
+                x:Name="nextBtn"
                 Height="24"
                 Width="100"
                 Margin="10, 0, 10, 10"
@@ -105,6 +371,7 @@
                 Height="24"
                 Width="100"
                 Margin="10, 0, 10, 10"
+                Click="CancelHandler"
             >
                 <Button.Content>
                     <StackPanel

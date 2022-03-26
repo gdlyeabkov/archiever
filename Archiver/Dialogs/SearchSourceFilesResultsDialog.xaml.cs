@@ -19,9 +19,38 @@ namespace Archiver.Dialogs
     /// </summary>
     public partial class SearchSourceFilesResultsDialog : Window
     {
-        public SearchSourceFilesResultsDialog()
+
+        public List<string> results;
+        
+        public SearchSourceFilesResultsDialog(List<string> results)
         {
             InitializeComponent();
+
+            Initialize(results);
+
         }
+
+        public void Initialize(List<string> results)
+        {
+            this.results = results;
+            OutputResults();
+        }
+
+
+        public void OutputResults()
+        {
+            foreach (string result in results)
+            {
+                string fileName = System.IO.Path.GetFileName(result);
+                StackPanel searchedFile = new StackPanel();
+                searchedFile.Orientation = Orientation.Horizontal;
+                searchedFile.Height = 35;
+                TextBlock searchedFileNameLabel = new TextBlock();
+                searchedFileNameLabel.Text = fileName;
+                searchedFile.Children.Add(searchedFileNameLabel);
+                searchedFiles.Children.Add(searchedFile);
+            }
+        }
+
     }
 }

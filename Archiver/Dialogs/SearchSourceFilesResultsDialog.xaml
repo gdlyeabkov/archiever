@@ -9,7 +9,70 @@
         Height="450"
         Width="800"
     >
-    <Grid>
-        
-    </Grid>
+    <DockPanel>
+        <StackPanel>
+            <StackPanel
+                x:Name="searchedFiles"
+                DockPanel.Dock="Top"
+                Height="350"
+            >
+            
+            </StackPanel>
+            <StackPanel
+                Orientation="Horizontal"
+                Height="25"
+                HorizontalAlignment="Right"
+                DockPanel.Dock="Bottom"
+            >
+                <Button
+                    Content="Фоновый режим"
+                    Width="125"
+                    Margin="10, 0, 10, 0"
+                    IsEnabled="False"
+                />
+                <Button
+                    Content="Пауза"
+                    Width="125"
+                    Margin="10, 0, 10, 0"
+                    IsEnabled="False"
+                />
+                <Button
+                    Content="Закрыть"
+                    Width="125"
+                    Margin="10, 0, 10, 0"
+                />
+                <Button
+                    Content="Справка"
+                    Width="125"
+                    Margin="10, 0, 10, 0"
+                />
+            </StackPanel>
+            <StackPanel
+                Orientation="Horizontal"    
+            >
+                <Border
+                    BorderBrush="LightGray"
+                    BorderThickness="1"
+                    Width="400"
+                >
+                    <Border.Child>
+                        <TextBlock
+                            Text="Найдено: 0"    
+                        />
+                    </Border.Child>
+                </Border>
+                <Border
+                    BorderBrush="LightGray"
+                    BorderThickness="1"
+                    Width="400"    
+                >
+                    <Border.Child>
+                        <TextBlock
+                            Text="Найдено: 0"    
+                        />
+                    </Border.Child>
+                </Border>
+            </StackPanel>
+        </StackPanel>
+    </DockPanel>
 </Window>

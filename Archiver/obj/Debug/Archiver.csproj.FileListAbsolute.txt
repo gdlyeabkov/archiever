@@ -40,3 +40,5 @@ C:\wpf_projects\Archiver\Archiver\obj\Debug\Dialogs\InfoSourceFileDialog.baml
 C:\wpf_projects\Archiver\Archiver\obj\Debug\Dialogs\MasterArchieveDialog.baml
 C:\wpf_projects\Archiver\Archiver\obj\Debug\Dialogs\SearchSourceFilesDialog.baml
 C:\wpf_projects\Archiver\Archiver\obj\Debug\Dialogs\SearchSourceFilesResultsDialog.baml
+C:\wpf_projects\Archiver\Archiver\obj\Debug\Dialogs\ProgressDialog.g.cs
+C:\wpf_projects\Archiver\Archiver\obj\Debug\Dialogs\ProgressDialog.baml

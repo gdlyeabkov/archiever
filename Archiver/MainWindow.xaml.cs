@@ -219,7 +219,19 @@ namespace Archiver
 
         public void FixSourceFiles()
         {
+            int countSelectedSourceFiles = selectedSourceFiles.Count;
+            bool isSourceFilesSelected = countSelectedSourceFiles >= 1;
+            if (isSourceFilesSelected)
+            {
 
+                Archiver.Dialogs.FixArchieveDialog dialog = new Archiver.Dialogs.FixArchieveDialog();
+                dialog.Show();
+                dialog.Closed += AddArcheveDialogCloseHandler;
+            }
+            else
+            {
+                MessageBoxResult result = MessageBox.Show("Не выбраны файлы. Нужно отметить файлы для обработки.", "Внимание", MessageBoxButton.OK);
+            }
         }
 
         private void GetSourceFilesInfoHandler(object sender, RoutedEventArgs e)
@@ -252,6 +264,12 @@ namespace Archiver
         public void OpenMasterArchive ()
         {
             Archiver.Dialogs.MasterArchieveDialog dialog = new Archiver.Dialogs.MasterArchieveDialog(selectedSourceFiles);
+            dialog.Show();
+        }
+
+        private void OpenSearchDialogHandler(object sender, RoutedEventArgs e)
+        {
+            Archiver.Dialogs.SearchSourceFilesDialog dialog = new Archiver.Dialogs.SearchSourceFilesDialog();
             dialog.Show();
         }
 

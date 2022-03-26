@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,6 +20,9 @@ namespace Archiver.Dialogs
     /// </summary>
     public partial class SearchSourceFilesDialog : Window
     {
+
+        public String currentPath = @"C:\Gleb\archiever\zipsource";
+
         public SearchSourceFilesDialog()
         {
             InitializeComponent();
@@ -31,7 +35,16 @@ namespace Archiver.Dialogs
 
         public void Search ()
         {
-
+            string[] sourceFilesPaths = Directory.GetFiles(currentPath);
+            List<string> results = sourceFilesPaths.Where<string>((string path) => {
+                string content = File.ReadAllText(path);
+                string keywordsLabelContent = keywordsLabel.Text;
+                string insensitiveCaseKeywordsLabelContent = keywordsLabelContent.ToLower();
+                return content.ToLower().Contains(insensitiveCaseKeywordsLabelContent);
+            }).ToList<string>();
+            Archiver.Dialogs.SearchSourceFilesResultsDialog dialog = new Archiver.Dialogs.SearchSourceFilesResultsDialog(results);
+            dialog.Show();
+            Cancel();
         }
 
         private void CancelHandler(object sender, RoutedEventArgs e)

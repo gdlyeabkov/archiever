@@ -98,6 +98,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Dialogs\ProgressDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Dialogs\SearchSourceFilesDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -128,6 +132,9 @@
     </Compile>
     <Compile Include="Dialogs\MasterArchieveDialog.xaml.cs">
       <DependentUpon>MasterArchieveDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\ProgressDialog.xaml.cs">
+      <DependentUpon>ProgressDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="Dialogs\SearchSourceFilesDialog.xaml.cs">
       <DependentUpon>SearchSourceFilesDialog.xaml</DependentUpon>
