@@ -81,7 +81,9 @@
                         </StackPanel>
                     </MenuItem.Header>
                 </MenuItem>
-                <MenuItem>
+                <MenuItem
+                    Click="ExtractArchieveHandler"    
+                >
                     <MenuItem.Header>
                         <StackPanel Orientation="Vertical">
                             <materialDesign:PackIcon
@@ -98,7 +100,9 @@
                         </StackPanel>
                     </MenuItem.Header>
                 </MenuItem>
-                <MenuItem>
+                <MenuItem
+                    Click="TestArchieveHandler"
+                >
                     <MenuItem.Header>
                         <StackPanel Orientation="Vertical">
                             <materialDesign:PackIcon
@@ -132,7 +136,9 @@
                         </StackPanel>
                     </MenuItem.Header>
                 </MenuItem>
-                <MenuItem>
+                <MenuItem
+                    Click="DeleteSourceFileHandler"    
+                >
                     <MenuItem.Header>
                         <StackPanel Orientation="Vertical">
                             <materialDesign:PackIcon
@@ -166,7 +172,9 @@
                         </StackPanel>
                     </MenuItem.Header>
                 </MenuItem>
-                <MenuItem>
+                <MenuItem
+                    Click="OpenMasterArchiveHandler"
+                >
                     <MenuItem.Header>
                         <StackPanel Orientation="Vertical">
                             <materialDesign:PackIcon
@@ -183,7 +191,9 @@
                         </StackPanel>
                     </MenuItem.Header>
                 </MenuItem>
-                <MenuItem>
+                <MenuItem
+                    Click="GetSourceFilesInfoHandler"    
+                >
                     <MenuItem.Header>
                         <StackPanel Orientation="Vertical">
                             <materialDesign:PackIcon
@@ -203,7 +213,9 @@
                 <Separator
                     Style="{DynamicResource VerticalSeparatorStyle}"
                 />
-                <MenuItem>
+                <MenuItem
+                    Click="FixSourceFilesHandler"    
+                >
                     <MenuItem.Header>
                         <StackPanel Orientation="Vertical">
                             <materialDesign:PackIcon

@@ -1,0 +1,273 @@
+﻿<Window x:Class="Archiver.Dialogs.InfoSourceFileDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Archiver.Dialogs"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="Файловая информация"
+        Height="800"
+        Width="450">
+    <DockPanel>
+        <TabControl
+            DockPanel.Dock="Top"
+            Height="650"
+        >
+            <TabItem
+               Header="Информация"    
+            >
+                <StackPanel>
+                    <Border
+                        BorderBrush="LightGray"
+                        BorderThickness="1"
+                        Padding="10"
+                        Margin="10"
+                        Height="265"
+                    >
+                        <Border.Child>
+                            <StackPanel>
+                                <TextBlock
+                                    Text="Файловая статистика"    
+                                />
+                                <StackPanel
+                                    Orientation="Horizontal"
+                                >
+                                    <TextBlock
+                                        Text="Состояние:"
+                                        Width="165"
+                                    />
+                                    <TextBlock
+                                        Text="Готово"
+                                        Margin="175, 0, 0, 0"
+                                        TextAlignment="Right"
+                                    />
+                                </StackPanel>
+                                <Separator />
+                                <StackPanel
+                                    Orientation="Horizontal"
+                                >
+                                    <TextBlock
+                                        Text="Файлов:"    
+                                        Width="165"
+                                    />
+                                    <TextBlock
+                                        x:Name="filesCountLabel"
+                                        Text="0"
+                                        Margin="175, 0, 0, 0"
+                                        TextAlignment="Right"
+                                    />
+                                </StackPanel>
+                                <StackPanel
+                                    Orientation="Horizontal"
+                                >
+                                    <TextBlock
+                                        Text="Папок:"    
+                                        Width="165"
+                                    />
+                                    <TextBlock
+                                        x:Name="foldersCountLabel"
+                                        Text="0"
+                                        Margin="175, 0, 0, 0"
+                                        TextAlignment="Right"
+                                    />
+                                </StackPanel>
+                                <StackPanel
+                                    Orientation="Horizontal"
+                                >
+                                    <TextBlock
+                                        Text="Архивов:"    
+                                        Width="165"
+                                    />
+                                    <TextBlock
+                                        x:Name="archievesCountLabel"
+                                        Text="0"
+                                        Margin="175, 0, 0, 0"
+                                        TextAlignment="Right"
+                                    />
+                                </StackPanel>
+                                <Separator />
+                                <StackPanel
+                                    Orientation="Horizontal"
+                                >
+                                    <TextBlock
+                                        Text="Общий размер:"    
+                                        Width="165"
+                                    />
+                                    <TextBlock
+                                        x:Name="totalSizeLabel"
+                                        Text="0"
+                                        Margin="175, 0, 0, 0"
+                                        TextAlignment="Right"
+                                    />
+                                </StackPanel>
+                                <Separator />
+                                <StackPanel
+                                    Orientation="Horizontal"
+                                >
+                                    <TextBlock
+                                        Text="Размер кластеров:"    
+                                        Width="165"
+                                    />
+                                    <TextBlock
+                                        x:Name="clustersSizeLabel"
+                                        Text="0"
+                                        Margin="175, 0, 0, 0"
+                                        TextAlignment="Right"
+                                    />
+                                </StackPanel>
+                                <StackPanel
+                                    Orientation="Horizontal"
+                                >
+                                    <TextBlock
+                                        Text="Занимаемое файлами место:"    
+                                        Width="165"
+                                    />
+                                    <TextBlock
+                                        x:Name="filesSizeLabel"
+                                        Text="0"
+                                        Margin="175, 0, 0, 0"
+                                        TextAlignment="Right"
+                                    />
+                                </StackPanel>
+                                <StackPanel
+                                    Orientation="Horizontal"
+                                >
+                                    <TextBlock
+                                        Text="Потери на остатках кластеров:"    
+                                        Width="165"
+                                    />
+                                    <TextBlock
+                                        x:Name="losyClustersLabel"
+                                        Text="0"
+                                        Margin="175, 0, 0, 0"
+                                        TextAlignment="Right"
+                                    />
+                                </StackPanel>
+                            </StackPanel>
+                        </Border.Child>
+                    </Border>
+                    <Border
+                        BorderBrush="LightGray"
+                        BorderThickness="1"
+                        Padding="10"
+                        Margin="10"
+                        Height="265"
+                    >
+                        <Border.Child>
+                            <StackPanel>
+                                <TextBlock
+                                    Text="Предполагаемые степень и время сжатия"    
+                                />
+                                <StackPanel
+                                    Orientation="Horizontal"    
+                                >
+                                    <materialDesign:PackIcon
+                                        HorizontalAlignment="Center"
+                                        Kind="BooksAdd"
+                                        Width="40"
+                                        Height="40"
+                                        Padding="25"
+                                        Margin="25"
+                                    />
+                                    <StackPanel>
+                                        <StackPanel
+                                            Orientation="Horizontal"
+                                        >
+                                            <TextBlock
+                                                Text="Состояние:"
+                                                Width="165"
+                                            />
+                                            <TextBlock
+                                                Text="Готово"
+                                                Margin="75, 0, 0, 0"
+                                                TextAlignment="Right"
+                                            />
+                                        </StackPanel>
+                                        <Separator />
+                                        <StackPanel
+                                            Orientation="Horizontal"
+                                        >
+                                            <TextBlock
+                                                Text="Степень сжатия:"
+                                                Width="165"
+                                            />
+                                            <TextBlock
+                                                Text="0%"
+                                                Margin="75, 0, 0, 0"
+                                                TextAlignment="Right"
+                                            />
+                                        </StackPanel>
+                                        <StackPanel
+                                            Orientation="Horizontal"
+                                        >
+                                            <TextBlock
+                                                Text="Размер в архиве:"
+                                                Width="165"
+                                            />
+                                            <TextBlock
+                                                Text="0 Кб"
+                                                Margin="75, 0, 0, 0"
+                                                TextAlignment="Right"
+                                            />
+                                        </StackPanel>
+                                        <StackPanel
+                                            Orientation="Horizontal"
+                                        >
+                                            <TextBlock
+                                                Text="Оценка времени сжатия:"
+                                                Width="165"
+                                            />
+                                            <TextBlock
+                                                Text="00:00:00"
+                                                Margin="75, 0, 0, 0"
+                                                TextAlignment="Right"
+                                            />
+                                        </StackPanel>
+                                        <Separator />
+                                        <StackPanel
+                                            Orientation="Horizontal"
+                                        >
+                                            <TextBlock
+                                                Text="Оценивать автоматически:"
+                                                Width="165"
+                                            />
+                                            <CheckBox
+                                                Margin="75, 0, 0, 0"    
+                                            />
+                                        </StackPanel>
+                                        <Separator />
+                                    </StackPanel>
+                                </StackPanel>
+                            </StackPanel>
+                        </Border.Child>
+                    </Border>
+                </StackPanel>
+            </TabItem>
+        </TabControl>
+        <StackPanel
+            Orientation="Horizontal"    
+            Height="35"
+            HorizontalAlignment="Right"
+        >
+            <Button
+                Content="ОК"
+                Width="75"
+                Margin="10, 0, 10, 0"
+                Click="OkHandler"
+            />
+            <Button
+                Content="Отмена"
+                Width="75"
+                Margin="10, 0, 10, 0"
+                Click="CancelHandler"
+            />
+            <Button
+                Content="Справка"
+                Width="75"
+                Margin="10, 0, 10, 0"
+                Click="GetHelpHandler"
+            />
+        </StackPanel>
+    </DockPanel>
+</Window>

@@ -28,3 +28,15 @@ C:\wpf_projects\Archiver\Archiver\bin\Debug\Aspose.Zip.xml
 C:\wpf_projects\Archiver\Archiver\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\wpf_projects\Archiver\Archiver\obj\Debug\Dialogs\AddArchieveDialog.g.cs
 C:\wpf_projects\Archiver\Archiver\obj\Debug\Dialogs\AddArchieveDialog.baml
+C:\wpf_projects\Archiver\Archiver\obj\Debug\Dialogs\ExtractArchieveDialog.g.cs
+C:\wpf_projects\Archiver\Archiver\obj\Debug\Dialogs\ExtractArchieveDialog.baml
+C:\wpf_projects\Archiver\Archiver\obj\Debug\Dialogs\FixArchieveDialog.g.cs
+C:\wpf_projects\Archiver\Archiver\obj\Debug\Dialogs\InfoSourceFileDialog.g.cs
+C:\wpf_projects\Archiver\Archiver\obj\Debug\Dialogs\MasterArchieveDialog.g.cs
+C:\wpf_projects\Archiver\Archiver\obj\Debug\Dialogs\SearchSourceFilesDialog.g.cs
+C:\wpf_projects\Archiver\Archiver\obj\Debug\Dialogs\SearchSourceFilesResultsDialog.g.cs
+C:\wpf_projects\Archiver\Archiver\obj\Debug\Dialogs\FixArchieveDialog.baml
+C:\wpf_projects\Archiver\Archiver\obj\Debug\Dialogs\InfoSourceFileDialog.baml
+C:\wpf_projects\Archiver\Archiver\obj\Debug\Dialogs\MasterArchieveDialog.baml
+C:\wpf_projects\Archiver\Archiver\obj\Debug\Dialogs\SearchSourceFilesDialog.baml
+C:\wpf_projects\Archiver\Archiver\obj\Debug\Dialogs\SearchSourceFilesResultsDialog.baml

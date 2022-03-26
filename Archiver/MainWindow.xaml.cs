@@ -56,7 +56,6 @@ namespace Archiver
             bool isSourceFilesSelected = countSelectedSourceFiles >= 1;
             if (isSourceFilesSelected)
             {
-                // string data = selectedSourceFiles[0];
                 Archiver.Dialogs.AddArchieveDialog dialog = new Archiver.Dialogs.AddArchieveDialog(selectedSourceFiles);
                 dialog.Show();
                 dialog.Closed += AddArcheveDialogCloseHandler;
@@ -65,6 +64,7 @@ namespace Archiver
 
         public void GetSourceFiles()
         {
+            sourceFiles.Children.Clear();
             string[] sourceFilesPaths = Directory.GetFiles(currentPath);
             foreach (string sourceFilePath in sourceFilesPaths)
             {
@@ -119,10 +119,140 @@ namespace Archiver
         public void ClearSelection ()
         {
             selectedSourceFiles.Clear();
+            GetSourceFiles();
             foreach (StackPanel someSourceFile in sourceFiles.Children)
             {
                 someSourceFile.Background = System.Windows.Media.Brushes.White;
             }
+        }
+
+        private void ExtractArchieveHandler(object sender, RoutedEventArgs e)
+        {
+            OpenExtractArchieveDialog();
+        }
+
+        public void OpenExtractArchieveDialog()
+        {
+            int countSelectedSourceFiles = selectedSourceFiles.Count;
+            bool isSourceFilesSelected = countSelectedSourceFiles >= 1;
+            if (isSourceFilesSelected)
+            {
+                int countZips = selectedSourceFiles.Where<string>((string path) => {
+                    string ext = System.IO.Path.GetExtension(path);
+                    bool isRar = ext == ".rar";
+                    bool isZip = ext == ".zip";
+                    bool isArchieve = isRar || isZip;
+                    return isArchieve;
+                }).Count<string>();
+                bool isArchievesFound = countZips >= 1;
+                if (isArchievesFound)
+                {
+                    Archiver.Dialogs.ExtractArchieveDialog dialog = new Archiver.Dialogs.ExtractArchieveDialog(selectedSourceFiles);
+                    dialog.Show();
+                    dialog.Closed += ExtractArcheveDialogCloseHandler;
+                }
+                else
+                {
+                    MessageBoxResult result = MessageBox.Show("Среди выбранных файлов и папок нет архивов.", "Операция с группой архивов", MessageBoxButton.OK);
+                }
+            }
+        }
+
+        public void ExtractArcheveDialogCloseHandler (object sender, EventArgs e)
+        {
+            ClearSelection();
+        }
+
+        private void TestArchieveHandler(object sender, RoutedEventArgs e)
+        {
+            TestArchieve();
+        }
+
+        private void TestArchieve()
+        {
+            int countSelectedSourceFiles = selectedSourceFiles.Count;
+            bool isSourceFilesSelected = countSelectedSourceFiles >= 1;
+            if (isSourceFilesSelected)
+            {
+                int countZips = selectedSourceFiles.Where<string>((string path) => {
+                    string ext = System.IO.Path.GetExtension(path);
+                    bool isRar = ext == ".rar";
+                    bool isZip = ext == ".zip";
+                    bool isArchieve = isRar || isZip;
+                    return isArchieve;
+                }).Count<string>();
+                bool isArchievesFound = countZips >= 1;
+                if (isArchievesFound)
+                {
+                    MessageBoxResult result = MessageBox.Show("Ошибок не обнаружено.", "Тестирование окончено", MessageBoxButton.OK);
+                }
+                else
+                {
+                    MessageBoxResult result = MessageBox.Show("Среди выбранных файлов и папок нет архивов.", "Операция с группой архивов", MessageBoxButton.OK);
+                }
+            }
+        }
+
+        private void DeleteSourceFileHandler(object sender, RoutedEventArgs e)
+        {
+            DeleteSourceFile();
+        }
+
+        public void DeleteSourceFile()
+        {
+            int countSelectedSourceFiles = selectedSourceFiles.Count;
+            bool isSourceFilesSelected = countSelectedSourceFiles >= 1;
+            if (isSourceFilesSelected)
+            {
+                foreach (String selectedSourceFile in selectedSourceFiles)
+                {
+                    File.Delete(selectedSourceFile);
+                }
+                ClearSelection();
+            }
+        }
+
+        private void FixSourceFilesHandler(object sender, RoutedEventArgs e)
+        {
+            FixSourceFiles();
+        }
+
+        public void FixSourceFiles()
+        {
+
+        }
+
+        private void GetSourceFilesInfoHandler(object sender, RoutedEventArgs e)
+        {
+            GetSourceFilesInfo();
+        }
+
+        public void GetSourceFilesInfo()
+        {
+            int countSelectedSourceFiles = selectedSourceFiles.Count;
+            bool isSourceFilesSelected = countSelectedSourceFiles >= 1;
+            if (isSourceFilesSelected)
+            {
+
+                Archiver.Dialogs.InfoSourceFileDialog dialog = new Archiver.Dialogs.InfoSourceFileDialog(selectedSourceFiles);
+                dialog.Show();
+                dialog.Closed += AddArcheveDialogCloseHandler;
+            }
+            else
+            {
+                MessageBoxResult result = MessageBox.Show("Не выбраны файлы. Нужно отметить файлы для обработки.", "Внимание", MessageBoxButton.OK);
+            }
+        }
+
+        private void OpenMasterArchiveHandler(object sender, RoutedEventArgs e)
+        {
+            OpenMasterArchive();
+        }
+
+        public void OpenMasterArchive ()
+        {
+            Archiver.Dialogs.MasterArchieveDialog dialog = new Archiver.Dialogs.MasterArchieveDialog(selectedSourceFiles);
+            dialog.Show();
         }
 
     }

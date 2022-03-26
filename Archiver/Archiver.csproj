@@ -59,6 +59,7 @@
     <Reference Include="System.Text.Encoding.CodePages, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Text.Encoding.CodePages.4.5.0\lib\net461\System.Text.Encoding.CodePages.dll</HintPath>
     </Reference>
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -81,6 +82,30 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Dialogs\ExtractArchieveDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogs\FixArchieveDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogs\InfoSourceFileDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogs\MasterArchieveDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogs\SearchSourceFilesDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogs\SearchSourceFilesResultsDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -91,6 +116,24 @@
     </Compile>
     <Compile Include="Dialogs\AddArchieveDialog.xaml.cs">
       <DependentUpon>AddArchieveDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\ExtractArchieveDialog.xaml.cs">
+      <DependentUpon>ExtractArchieveDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\FixArchieveDialog.xaml.cs">
+      <DependentUpon>FixArchieveDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\InfoSourceFileDialog.xaml.cs">
+      <DependentUpon>InfoSourceFileDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\MasterArchieveDialog.xaml.cs">
+      <DependentUpon>MasterArchieveDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\SearchSourceFilesDialog.xaml.cs">
+      <DependentUpon>SearchSourceFilesDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\SearchSourceFilesResultsDialog.xaml.cs">
+      <DependentUpon>SearchSourceFilesResultsDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
