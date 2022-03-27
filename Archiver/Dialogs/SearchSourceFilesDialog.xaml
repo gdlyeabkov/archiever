@@ -34,7 +34,7 @@
                                 Text="Искомые имена файлов:"    
                             />
                             <ComboBox
-                                x:Name="keywordsLabel"
+                                x:Name="sourceFileNameLabel"
                                 Margin="0, 5, 0, 5"
                                 IsEditable="True"    
                             >
@@ -47,6 +47,7 @@
                                 Text="Искомая строка:"    
                             />
                             <ComboBox
+                                x:Name="keywordsLabel"
                                 Margin="0, 5, 0, 5"
                                 IsEditable="True"    
                             >
@@ -107,9 +108,20 @@
                                 />
                             </ComboBox>
                         </StackPanel>
-                        <CheckBox Content="Поиск во вложенных папках" />
-                        <CheckBox Content="Поиск в файлах" />
-                        <CheckBox Content="Поиск в архивах" />
+                        <CheckBox
+                            Content="Поиск во вложенных папках"
+                            IsChecked="True"    
+                        />
+                        <CheckBox
+                            x:Name="isSearchInSourceFilesCheckBox"
+                            Content="Поиск в файлах"
+                            IsChecked="True"
+                        />
+                        <CheckBox
+                            x:Name="isSearchInArchievesCheckBox"
+                            Content="Поиск в архивах"
+                            IsChecked="True"
+                        />
                         <CheckBox Content="Пропускать зашифрованные" />
                     </StackPanel>
                 </Border.Child>

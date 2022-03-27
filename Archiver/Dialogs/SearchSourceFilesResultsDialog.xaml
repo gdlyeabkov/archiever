@@ -40,6 +40,7 @@
                     Content="Закрыть"
                     Width="125"
                     Margin="10, 0, 10, 0"
+                    Click="CancelHandler"
                 />
                 <Button
                     Content="Справка"
@@ -57,6 +58,7 @@
                 >
                     <Border.Child>
                         <TextBlock
+                            x:Name="foundLabel"
                             Text="Найдено: 0"    
                         />
                     </Border.Child>
@@ -68,7 +70,7 @@
                 >
                     <Border.Child>
                         <TextBlock
-                            Text="Найдено: 0"    
+                            Text="Готово"    
                         />
                     </Border.Child>
                 </Border>

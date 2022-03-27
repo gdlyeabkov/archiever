@@ -36,11 +36,45 @@ namespace Archiver.Dialogs
         public void Search ()
         {
             string[] sourceFilesPaths = Directory.GetFiles(currentPath);
+            string sourceFileNameLabelContent = sourceFileNameLabel.Text;
+            int sourceFileNameLabelContentLength = sourceFileNameLabelContent.Length;
+            bool isSetSourceFileName = sourceFileNameLabelContentLength >= 1;
+            string sourceFileNameLabelInsensitiveCaseContent = "";
+            if (isSetSourceFileName)
+            {
+                sourceFileNameLabelInsensitiveCaseContent = sourceFileNameLabelContent.ToLower();
+            }
+            bool isSearchInSourceFiles = ((bool)(isSearchInSourceFilesCheckBox.IsChecked));
+            bool isSearchInArchieves = ((bool)(isSearchInArchievesCheckBox.IsChecked));
             List<string> results = sourceFilesPaths.Where<string>((string path) => {
+                bool isSourceFileNameMatches = true;
+                if (isSetSourceFileName)
+                {
+                    string sourceFileName = System.IO.Path.GetFileName(path);
+                    string insensitiveCaseSourceFileName = sourceFileName.ToLower();
+                    isSourceFileNameMatches = insensitiveCaseSourceFileName.Contains(sourceFileNameLabelInsensitiveCaseContent);
+                }
                 string content = File.ReadAllText(path);
+                string insensitiveCaseSourceFileContent = content.ToLower();
                 string keywordsLabelContent = keywordsLabel.Text;
                 string insensitiveCaseKeywordsLabelContent = keywordsLabelContent.ToLower();
-                return content.ToLower().Contains(insensitiveCaseKeywordsLabelContent);
+                bool isSourceFileContentMatches = insensitiveCaseSourceFileContent.Contains(insensitiveCaseKeywordsLabelContent);
+                bool isSourceFileAsArchieveMatches = true;
+                string ext = System.IO.Path.GetExtension(path);
+                bool isZip = ext == ".zip";
+                bool isRar = ext == ".rar";
+                bool isArchieve = isZip || isRar;
+                bool isNotArchieve = !isArchieve;
+                bool isArchieveOrNotArchieve = isArchieve || isNotArchieve;
+                bool isNotSearchInArchieves = !isSearchInArchieves;
+                bool isArchieveSearch = isSearchInArchieves && isArchieveOrNotArchieve;
+                bool isNotArchieveSearch = isNotSearchInArchieves && isNotArchieve;
+                isSourceFileAsArchieveMatches = isArchieveSearch || isNotArchieveSearch;
+                bool isSearchSourceFiles = true;
+                bool isSourceFileExists = File.Exists(path);
+                isSearchSourceFiles = isSourceFileExists && isSearchInSourceFiles;
+                bool isSourceFileMatches = isSourceFileNameMatches && isSourceFileContentMatches && isSourceFileAsArchieveMatches && isSearchSourceFiles;
+                return isSourceFileMatches;
             }).ToList<string>();
             Archiver.Dialogs.SearchSourceFilesResultsDialog dialog = new Archiver.Dialogs.SearchSourceFilesResultsDialog(results);
             dialog.Show();

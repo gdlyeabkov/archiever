@@ -50,6 +50,19 @@ namespace Archiver.Dialogs
                 searchedFile.Children.Add(searchedFileNameLabel);
                 searchedFiles.Children.Add(searchedFile);
             }
+            int countResults = results.Count;
+            string rawCountResults = countResults.ToString();
+            string foundLabelContent = "Найдено: " + rawCountResults;
+            foundLabel.Text = foundLabelContent;
+        }
+
+        private void CancelHandler(object sender, RoutedEventArgs e)
+        {
+            Cancel();
+        }
+
+        public void Cancel () {
+            this.Close();
         }
 
     }
